@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+	<gresource prefix="/org/samik/test">
+		<file compressed="true">test.glade</file>
+	</gresource>
+</gresources>

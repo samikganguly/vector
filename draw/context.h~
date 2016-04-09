@@ -1,0 +1,42 @@
+#ifndef GUARD_CONTEXT_H
+#define GUARD_CONTEXT_H
+
+#include <gtk/gtk.h>
+
+typedef struct _color {
+	double r, g, b, a;
+} Color;
+
+typedef struct _geom {
+	gchar *name;
+	gboolean fill, line;
+	Color *fill_col, *line_col;
+	GdkRectangle *bound;
+	void (*draw) (cairo_t *cairo_context, void *this);
+} Geom;
+
+typedef struct _circle {
+	Geom geom;
+	GdkPoint *center;
+	gint radius;
+} Circle;
+
+typedef struct _line_segment {
+	Geom geom;
+	GdkPoint head, tail;
+} LineSegment;
+
+typedef struct _draw_context {
+	Geom *current;
+	GArray *geoms;
+} DrawContext;
+
+void geom_set_fill(Geom *geometry, Color *col);
+void geom_set_line(Geom *geometry, Color *col);
+void geom_unset_fill(Geom *geometry);
+void geom_unset_line(Geom *geometry);
+void circle_init(Circle *circle, const Gdkpoint *center, const gint radius);
+void line_segment_init(LineSegment *line, const GdkPoint *head, const GdkPoint *tail);
+void draw_context_geom_add(DrawContext *context, Geom *geometry);
+
+#endif

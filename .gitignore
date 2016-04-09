@@ -1,0 +1,9 @@
+./vector-test
+./vector-test-gtk
+./test
+./draw/deploy
+./draw/draw
+./gldraw/build
+./gldraw/gldraw
+./gldraw/gldraw-dbg
+*.o

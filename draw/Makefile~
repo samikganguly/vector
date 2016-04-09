@@ -1,0 +1,9 @@
+CFLAGS=`pkg-config --cflags gtk+-3.0`
+LDFLAGS=`pkg-config --libs gtk+-3.0`
+
+default: draw draw-resource.gresource
+	$(CC) draw_types.o draw.c -o draw -lm $(CFLAGS) $(LDFLAGS)
+draw: draw_types.h draw_types.o draw.c
+	$(CC) -c draw_types.c $(CFLAGS) -o draw_types.o
+draw-resource.gresource: draw-resource.xml
+	glib-compile-resources draw-resource.xml

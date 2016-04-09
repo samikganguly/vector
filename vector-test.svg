@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800pt" height="600pt" viewBox="0 0 800 600" version="1.1">
+<g id="surface1">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 300 L 800 300 M 400 0 L 400 600 "/>
+<path style="fill:none;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0 330 L 800 330 M 0 360 L 800 360 M 0 390 L 800 390 M 0 420 L 800 420 M 0 450 L 800 450 M 0 480 L 800 480 M 0 510 L 800 510 M 0 540 L 800 540 M 0 570 L 800 570 M 0 330 L 800 330 M 0 300 L 800 300 M 0 270 L 800 270 M 0 240 L 800 240 M 0 210 L 800 210 M 0 180 L 800 180 M 0 150 L 800 150 M 0 120 L 800 120 M 0 90 L 800 90 M 0 60 L 800 60 M 0 30 L 800 30 M 440 0 L 440 600 M 480 0 L 480 600 M 520 0 L 520 600 M 560 0 L 560 600 M 600 0 L 600 600 M 640 0 L 640 600 M 680 0 L 680 600 M 720 0 L 720 600 M 760 0 L 760 600 M 440 0 L 440 600 M 400 0 L 400 600 M 360 0 L 360 600 M 320 0 L 320 600 M 280 0 L 280 600 M 240 0 L 240 600 M 200 0 L 200 600 M 160 0 L 160 600 M 120 0 L 120 600 M 80 0 L 80 600 M 40 0 L 40 600 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 800 -90 L 0 660 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 400 300 L 560 150 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 400 300 L 200 180 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 400 300 L 161.4375 369.902344 "/>
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 800 -416.367188 L 0 1119.367188 "/>
+</g>
+</svg>

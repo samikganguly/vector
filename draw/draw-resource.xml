@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+	<gresource prefix="/org/samik/draw">
+		<file>line_icon.png</file>
+		<file>circle_icon.png</file>
+		<file compressed="true">draw.glade</file>
+	</gresource>
+</gresources>

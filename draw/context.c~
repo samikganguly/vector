@@ -1,0 +1,91 @@
+#include "context.h"
+
+static const Color black = {0, 0, 0, 1}, white = {1, 1, 1, 1};
+static void draw_circle(cairo_t * context, Circle *this) {
+	// draw an ellipse for scaled circle
+	// approximated with Bezier curves
+	const gint rx = this->radius;
+	const gint ry = this->radius;
+	const double xmagic = 0.561, ymagic = 0.561;
+	const struct vector2d
+		ctr = *(this->center),
+		// end points
+		p1 = {ctr.x - rx, ctr.y},
+		p2 = {ctr.x, ctr.y - ry},
+		p3 = {ctr.x + rx, ctr.y},
+		p4 = {ctr.x, ctr.y + ry},
+		// control points
+		c1 = {p1.x, p1.y - ry * ymagic},
+		c2 = {p2.x - rx * xmagic, p2.y},
+		c3 = {p2.x + rx * xmagic, p2.y},
+		c4 = {p3.x, p3.y - ry * ymagic},
+		c5 = {p3.x, p3.y + ry * ymagic},
+		c6 = {p4.x + rx * xmagic, p4.y},
+		c7 = {p4.x - rx * xmagic, p4.y},
+		c8 = {p1.x, p1.y + ry * ymagic};
+	// approx circle
+	cairo_move_to(context, p1.x, p1.y);
+	cairo_curve_to(context, c1.x, c1.y, c2.x, c2.y, p2.x, p2.y);
+	cairo_curve_to(context, c3.x, c3.y, c4.x, c4.y, p3.x, p3.y);
+	cairo_curve_to(context, c5.x, c5.y, c6.x, c6.y, p4.x, p4.y);
+	cairo_curve_to(context, c7.x, c7.y, c8.x, c8.y, p1.x, p1.y);
+	if(this->geom->line) {
+		cairo_set_source_rgba(context, this->geom.line_col->r, 
+			this->geom.line_col->g, this->geom.line_col->b,
+			this->geom.line_col->a);
+		cairo_set_line_width(context, 1);
+		if(this->geom->fill) {
+			cairo_stroke_preserve(context);
+			cairo_set_source_rgba(context, this->geom.fill_col->r, 
+				this->geom.fill_col->g, this->geom.fill_col->b,
+				this->geom.fill_col->a);
+			cairo_fill(context);
+		} else {
+			cairo_stroke(context);
+		}
+	} else {
+		if(this->geom->fill) {
+			cairo_set_source_rgba(context, this->geom.fill_col->r, 
+				this->geom.fill_col->g, this->geom.fill_col->b,
+				this->geom.fill_col->a);
+			cairo_fill(context);
+		}
+	}
+}
+
+void geom_set_fill(Geom *geometry, Color *col) {
+	geometry->fill = TRUE;
+	if(col == NULL)
+		geometry->fill_col = &white;
+	else
+		geometry->fill_col = col;
+}
+void geom_set_line(Geom *geometry, Color *col) {
+	geometry->line = TRUE;
+	if(col == NULL)
+		geometry->line_col = &black;
+	else
+		geometry->line_col = col;
+}
+void geom_unset_fill(Geom *geometry) {
+	geometry->fill = FALSE;
+	geometry->fill_col = NULL;
+}
+void geom_unset_line(Geom *geometry) {
+	geometry->line = FALSE;
+	geometry->line_col = NULL;
+}
+void circle_init(Circle *circle, const Gdkpoint *center, const gint radius) {
+	circle->center = center;
+	circle->radius = radius;
+	circle->name = "circle";
+	circle->geom.bound->x = this->center->x - radius;
+	circle->geom.bound->y = this->center->y - radius;
+	circle->geom.bound->width = 2 * this->radius;
+	circle->geom.bound->height = circle->geom.bound->width;
+	circle->geom.draw = draw_circle;
+}
+void line_segment_init(LineSegment *line, const GdkPoint *head, const GdkPoint *tail);
+void draw_context_geom_add(DrawContext *context, Geom *geometry) {
+	g_array_append_val(context->geoms, geometry);
+}
